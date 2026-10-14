@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.geometry.Insets?>
+
+<VBox alignment="CENTER" spacing="15"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="application.UserLoginController">
+
+    <padding>
+        <Insets top="60" bottom="60" left="80" right="80"/>
+    </padding>
+
+    <Label text="User Login"
+           style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+    <Label text="Select your user type:"
+           style="-fx-font-size: 13px;"/>
+
+    <ComboBox fx:id="userTypeCombo"
+              promptText="Select type"
+              prefWidth="250"/>
+
+    <VBox spacing="8" alignment="CENTER_LEFT">
+        <Label text="Enter your ID / Code:"/>
+        <TextField fx:id="idField"
+                   promptText="Customer code / Rider ID"
+                   prefWidth="250"/>
+    </VBox>
+
+    <Label fx:id="errorLabel"
+           style="-fx-text-fill: red; -fx-font-size: 12px;"
+           text=""/>
+
+    <VBox spacing="10" alignment="CENTER">
+        <Button text="Login"
+                onAction="#handleLogin"
+                prefWidth="200" prefHeight="40"
+                style="-fx-font-size: 13px;"/>
+        <Button text="Back"
+                onAction="#handleBack"
+                prefWidth="200" prefHeight="40"
+                style="-fx-font-size: 13px;"/>
+    </VBox>
+
+</VBox>

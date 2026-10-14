@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="application.ReportsController">
+
+    <padding>
+        <Insets top="20" bottom="20" left="20" right="20"/>
+    </padding>
+
+    <Label text="Reports and Sorting"
+           style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+    <!-- Sorting buttons row 1 - Customers -->
+    <Label text="Customer Sorts:"
+           style="-fx-font-weight: bold;"/>
+    <HBox spacing="10">
+        <Button text="Sort by Credit Balance"
+                onAction="#handleSortByCredit"
+                prefHeight="35"/>
+        <Button text="Sort by First Name"
+                onAction="#handleSortByName"
+                prefHeight="35"/>
+        <Button text="Customers Credit Above 100"
+                onAction="#handleCreditAbove100"
+                prefHeight="35"/>
+        <Button text="Highest Credit Customer"
+                onAction="#handleHighestCredit"
+                prefHeight="35"/>
+    </HBox>
+
+    <!-- Sorting buttons row 2 - Orders & Restaurants -->
+    <Label text="Order and Restaurant Sorts:"
+           style="-fx-font-weight: bold;"/>
+    <HBox spacing="10">
+        <Button text="Sort Orders by Price"
+                onAction="#handleSortOrdersByPrice"
+                prefHeight="35"/>
+        <Button text="Sort Orders by Date"
+                onAction="#handleSortOrdersByDate"
+                prefHeight="35"/>
+        <Button text="Sort Restaurants by Rating"
+                onAction="#handleSortRestaurantsByRating"
+                prefHeight="35"/>
+        <Button text="Sort Riders by Deliveries"
+                onAction="#handleSortRidersByDeliveries"
+                prefHeight="35"/>
+    </HBox>
+
+    <!-- Stream buttons -->
+    <Label text="Stream Reports:"
+           style="-fx-font-weight: bold;"/>
+    <HBox spacing="10">
+        <Button text="Open Restaurants"
+                onAction="#handleOpenRestaurants"
+                prefHeight="35"/>
+        <Button text="Premium Restaurants"
+                onAction="#handlePremiumRestaurants"
+                prefHeight="35"/>
+        <Button text="Available Riders"
+                onAction="#handleAvailableRiders"
+                prefHeight="35"/>
+        <Button text="Total Money Paid"
+                onAction="#handleTotalMoney"
+                prefHeight="35"/>
+        <Button text="All Restaurants Report"
+                onAction="#handleAllRestaurantsReport"
+                prefHeight="35"/>
+    </HBox>
+
+    <!-- Result label -->
+    <Label fx:id="messageLabel"
+           style="-fx-font-size: 12px;"
+           text="" wrapText="true"/>
+
+    <!-- Result TableView - dynamically populated -->
+    <TableView fx:id="resultTable" prefHeight="280">
+        <columns>
+            <TableColumn fx:id="col1" text="Column 1" prefWidth="180"/>
+            <TableColumn fx:id="col2" text="Column 2" prefWidth="180"/>
+            <TableColumn fx:id="col3" text="Column 3" prefWidth="180"/>
+            <TableColumn fx:id="col4" text="Column 4" prefWidth="180"/>
+        </columns>
+    </TableView>
+
+    <Button text="Back to Dashboard"
+            onAction="#handleBack"
+            style="-fx-background-color: #e74c3c; -fx-text-fill: white;"/>
+
+</VBox>

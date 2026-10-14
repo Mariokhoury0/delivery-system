@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="application.OrderManagementController">
+
+    <padding>
+        <Insets top="20" bottom="20" left="20" right="20"/>
+    </padding>
+
+    <Label text="Order Management"
+           style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+    <!-- Search bar -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Enter order code" prefWidth="180"/>
+        <Button text="Search by Code" onAction="#handleSearchByCode"/>
+        <TextField fx:id="customerCodeField" promptText="Customer code" prefWidth="140"/>
+        <Button text="Search by Customer" onAction="#handleSearchByCustomer"/>
+        <TextField fx:id="restaurantCodeField" promptText="Restaurant code" prefWidth="140"/>
+        <Button text="Search by Restaurant" onAction="#handleSearchByRestaurant"/>
+    </HBox>
+
+    <!-- TableView -->
+    <TableView fx:id="orderTable" prefHeight="300">
+        <columns>
+            <TableColumn fx:id="codeCol" text="Code" prefWidth="55"/>
+            <TableColumn fx:id="customerCol" text="Customer" prefWidth="80"/>
+            <TableColumn fx:id="restaurantCol" text="Restaurant" prefWidth="130"/>
+            <TableColumn fx:id="basePriceCol" text="Base" prefWidth="70"/>
+            <TableColumn fx:id="finalPriceCol" text="Final Price" prefWidth="80"/>
+            <TableColumn fx:id="statusCol" text="Status" prefWidth="90"/>
+            <TableColumn fx:id="dateCol" text="Date" prefWidth="90"/>
+            <TableColumn fx:id="riderCol" text="Rider ID" prefWidth="90"/>
+        </columns>
+    </TableView>
+
+    <!-- Action buttons -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button text="Show All" onAction="#handleShowAll"/>
+        <Button text="Show Highest Price" onAction="#handleShowHighest"/>
+    </HBox>
+
+    <Label fx:id="messageLabel"
+           style="-fx-font-size: 12px;"
+           text="" wrapText="true"/>
+
+    <Button text="Back to Dashboard"
+            onAction="#handleBack"
+            style="-fx-background-color: #e74c3c; -fx-text-fill: white;"/>
+
+</VBox>

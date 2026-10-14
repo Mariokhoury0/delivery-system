@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="application.CustomerManagementController">
+
+    <padding>
+        <Insets top="20" bottom="20" left="20" right="20"/>
+    </padding>
+
+    <Label text="Customer Management"
+           style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+    <!-- Search bar -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Enter customer code" prefWidth="180"/>
+        <Button text="Search" onAction="#handleSearch"/>
+        <Button text="Show All" onAction="#handleShowAll"/>
+    </HBox>
+
+    <!-- TableView -->
+    <TableView fx:id="customerTable" prefHeight="300">
+        <columns>
+            <TableColumn fx:id="codeCol" text="Code" prefWidth="60"/>
+            <TableColumn fx:id="firstNameCol" text="First Name" prefWidth="100"/>
+            <TableColumn fx:id="lastNameCol" text="Last Name" prefWidth="100"/>
+            <TableColumn fx:id="cityCol" text="City" prefWidth="100"/>
+            <TableColumn fx:id="phoneCol" text="Phone" prefWidth="110"/>
+            <TableColumn fx:id="emailCol" text="Email" prefWidth="180"/>
+            <TableColumn fx:id="balanceCol" text="Balance" prefWidth="80"/>
+        </columns>
+    </TableView>
+
+    <!-- Action buttons -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button text="Add Customer" onAction="#handleAdd"/>
+        <Button text="Update Customer" onAction="#handleUpdate"/>
+        <Button text="Show Orders" onAction="#handleShowOrders"/>
+        <Button text="Show Restaurants" onAction="#handleShowRestaurants"/>
+        <Button text="Show Premium Restaurants" onAction="#handleShowPremium"/>
+    </HBox>
+
+    <!-- Info / result area -->
+    <Label fx:id="messageLabel"
+           style="-fx-font-size: 12px;"
+           text="" wrapText="true"/>
+
+    <Button text="Back to Dashboard"
+            onAction="#handleBack"
+            style="-fx-background-color: #e74c3c; -fx-text-fill: white;"/>
+
+</VBox>
